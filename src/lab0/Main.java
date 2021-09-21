@@ -1,13 +1,10 @@
 package lab0;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) throws Exception {
-        System.out.println(integer(876));
-        System.out.println(bool(369));
-        System.out.println(cond(3, 0));
-        System.out.println(caseSw(5));
-        System.out.println(forLoop(1));
-        System.out.println(whileLoop(4684));
+        System.out.println("Hello, world!");
     }
 
     public static int integer(int n) {
@@ -25,17 +22,15 @@ public class Main {
     public static int cond(float x, float y) {
         if (x == 0 && y == 0) {
             return 0;
-        }
-        else if (x == 0 && y != 0.0) {
+        } else if (x == 0 && y != 0.0) {
             return 1;
-        }
-        else if (x != 0 && y == 0.0) {
+        } else if (x != 0 && y == 0.0) {
             return 2;
-        }
-        else {
+        } else {
             return 3;
         }
     }
+
     public static String caseSw(int n) {
         return switch (n) {
             case 1 -> "Monday";
@@ -48,6 +43,7 @@ public class Main {
             default -> "";
         };
     }
+
     public static float forLoop(int n) {
         float res = 1.00f;
         for (int i = 1; i <= n; i++) {
@@ -59,6 +55,7 @@ public class Main {
         }
         return res;
     }
+
     public static boolean whileLoop(int n) {
         int n1;
         while (n > 1) {
@@ -69,5 +66,45 @@ public class Main {
             n /= 10;
         }
         return false;
+    }
+
+    public static int minmax(int[] array) {
+        int min=array[0]+1, max=array[0]-1, count1=1, count2=1;
+        for (int j : array) {
+            if (min > j) {
+                min = j;
+                count1 = 1;
+            } else if (min == j) {
+                count1++;
+            }
+            if (max < j) {
+                count2 = 1;
+                max = j;
+            } else if (max == j) {
+                count2++;
+            }
+        }
+        return count1 + count2;
+    }
+
+    public static int arrayTask(int[] array, int k, int l) {
+        int res=0;
+        for (int j = k - 1; j < l; j++) {
+            res += array[j];
+        }
+        return res;
+    }
+
+    public static float[] matrix(int[][] array, int n, int m) {
+        float[] res = new float[(n-1)/2+1];
+        int k=-1;
+        for (int j = 0; j < n; j += 2) {
+            k++;
+            for(int i = 0; i < m; i++) {
+                res[k] += array[j][i];
+            }
+            res[k] /= m;
+        }
+        return res;
     }
 }
