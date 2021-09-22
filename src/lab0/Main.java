@@ -1,7 +1,5 @@
 package lab0;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, world!");
@@ -22,9 +20,9 @@ public class Main {
     public static int cond(float x, float y) {
         if (x == 0 && y == 0) {
             return 0;
-        } else if (x == 0 && y != 0.0) {
+        } else if (x == 0) {
             return 1;
-        } else if (x != 0 && y == 0.0) {
+        } else if (y == 0) {
             return 2;
         } else {
             return 3;
@@ -44,21 +42,19 @@ public class Main {
         };
     }
 
-    public static float forLoop(int n) {
-        float res = 1.00f;
+    public static double forLoop(int n) {
+        double res = 1;
+        int fact = 1;
         for (int i = 1; i <= n; i++) {
-            int f = 1;
-            for (int j = 1; j <= i; j++) {
-                f *= j;
-            }
-            res += 1.00 / f;
+            fact *= i;
+            res += 1.0 / fact;
         }
         return res;
     }
 
     public static boolean whileLoop(int n) {
         int n1;
-        while (n > 1) {
+        while (n >= 1) {
             n1 = n % 10;
             if (n1 % 2 != 0) {
                 return true;
@@ -95,8 +91,8 @@ public class Main {
         return res;
     }
 
-    public static float[] matrix(int[][] array, int n, int m) {
-        float[] res = new float[(n-1)/2+1];
+    public static double[] matrix(int[][] array, int n, int m) {
+        double[] res = new double[(n-1)/2+1];
         int k=-1;
         for (int j = 0; j < n; j += 2) {
             k++;
