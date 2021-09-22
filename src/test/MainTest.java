@@ -1,4 +1,4 @@
-package tests;
+package test;
 
 import lab0.Main;
 import org.testng.annotations.DataProvider;
