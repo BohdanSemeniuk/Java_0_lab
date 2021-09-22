@@ -1,4 +1,4 @@
-package test;
+package tests;
 
 import lab0.Main;
 import org.testng.annotations.DataProvider;
@@ -92,14 +92,14 @@ public class MainTest {
     }
 
     @DataProvider (name = "MatrixProductsProvider")
-    public Object[][] dpMatrixProducts(){
+    public Object[][] dpMatrixTask(){
         return new Object[][] {{new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, 3, 3, new double[]{2, 8}},
                 {new int[][]{{0, 5, 3, 8, 7, 9, 3}, {4, 2, 5, 7, 2, 6, 5}, {3, 1, 6, 3, 8, 4, 3},
                         {7, 4, 3, 2, 7, 3, 8}, {5, 2, 7, 3, 9, 2, 0}}, 5, 7, new double[]{5, 4, 4}}};
     }
 
     @Test(dataProvider = "MatrixProductsProvider")
-    public void testMatrixProducts(int[][] arr, int n, int m, double[] expected) {
+    public void testMatrixTask(int[][] arr, int n, int m, double[] expected) {
         assertEquals(Main.matrix(arr, n, m), expected);
     }
 }
